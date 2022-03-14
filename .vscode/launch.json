@@ -4,17 +4,16 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
-        }
-    ]
+    {
+        "command": "yarn dev",
+        "name": "Lauch Program",
+        "request": "attach",
+        "protocol": "inspector",
+        "restart": true,
+        "type": "node",
+        "skipFiles": [
+            "<node_internals>/**"
+        ]
+    }
+]
 }

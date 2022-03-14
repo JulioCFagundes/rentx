@@ -4,7 +4,7 @@ import { ImportCategoryUsecase } from "./ImportCategoryUseCase";
 
 
 
-const categoriesRepository = CategoriesRepository.getInstance()
+const categoriesRepository = null;
 const importCategoryUseCase = new ImportCategoryUsecase(categoriesRepository)
 const importCategoryController = new ImportCategoryController(importCategoryUseCase)
 
