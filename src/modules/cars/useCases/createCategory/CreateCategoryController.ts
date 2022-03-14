@@ -11,7 +11,7 @@ class CreateCategoryController {
         const { name, description } = request.body
 
         
-        await this.createCategoryUseCase.execute(({name, description}))
+        await this.createCategoryUseCase.execute({name, description})
 
         return response.status(201).send()
     }
