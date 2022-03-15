@@ -6,6 +6,8 @@ import swaggerFile from "./swagger.json"
 
 import "./database/index";
 
+import "./shared/container";
+
 const app = express();
 
 app.use(express.json())

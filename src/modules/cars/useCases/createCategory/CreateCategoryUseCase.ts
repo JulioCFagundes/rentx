@@ -1,4 +1,4 @@
-import { CategoriesRepository } from "../../repositories/implementations/CategoriesRepository";
+import { inject, injectable } from "tsyringe";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 
@@ -12,9 +12,12 @@ interface IRequest {
 * [x] Acessar o repositório
 * [x] Retornar algo
  */
+@injectable()
 class CreateCategoryUseCase {
     
-    constructor(private categoriesRepository: ICategoriesRepository){}
+    constructor(
+        @inject("CategoriesRepository")
+        private categoriesRepository: ICategoriesRepository){}
 
     
 
