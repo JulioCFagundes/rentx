@@ -1,4 +1,3 @@
-
 import {parse as csvParse} from 'csv-parse';
 import fs from 'fs'
 import { inject, injectable } from 'tsyringe';
@@ -57,7 +56,7 @@ class ImportCategoryUsecase{
         categories.map(async (category) => {
             const { name, description } = category
 
-            const existCategory = this.categoriesRepository.findByName(name)
+            const existCategory =  await this.categoriesRepository.findByName(name)
 
             if(!existCategory) {
                 this.categoriesRepository.create({
@@ -71,5 +70,3 @@ class ImportCategoryUsecase{
 }
 
 export {ImportCategoryUsecase}
-
-
