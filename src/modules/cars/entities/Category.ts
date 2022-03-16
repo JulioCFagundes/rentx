@@ -3,6 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
 @Entity("categories")
 class Category {
+    
     @PrimaryColumn()
     id?: string;
 
