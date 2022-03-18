@@ -12,9 +12,9 @@ class ListCategoriesUseCase {
         private categoriesRepository: ICategoriesRepository){ }
 
     async execute(): Promise<Category[]> {
-        console.log("chegou aqui")
+        
         const categories = await this.categoriesRepository.list();
-        console.log("depois de const categories")
+        
         return categories;
 
         }

@@ -11,7 +11,7 @@ class ListCategoriesController {
     async handle(request: Request, response: Response): Promise<Response>{
 
         const listCategoriesUseCase = container.resolve(ListCategoriesUseCase)
-        console.log(listCategoriesUseCase)
+        
         const all = await listCategoriesUseCase.execute()
         console.log(all)
         

@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../errors/appError";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 
@@ -24,7 +25,7 @@ class CreateCategoryUseCase {
     async execute({name, description}: IRequest): Promise<void>{
         const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
         if(categoryAlreadyExists){
-            throw new Error("Category already exists!")
+            throw new AppError("Category already exists!")
         }
         console.log("antes de create")
         await this.categoriesRepository.create({name, description})

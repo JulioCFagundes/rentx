@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --poll --respawn src/server.ts",
+    "dev": "ts-node-dev --poll --transpile-only --ignore-watch node_modules --exit-child src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@
     "bcrypt": "^5.0.1",
     "csv-parse": "^5.0.4",
     "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.4",
