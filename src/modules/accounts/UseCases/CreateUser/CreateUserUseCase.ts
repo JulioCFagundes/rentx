@@ -18,7 +18,9 @@ class CreateUserUseCase{
         
         email, 
         password, 
-        driver_license
+        driver_license,
+        id,
+        avatar
     }: ICreateUserDTO): Promise<void> {
 
         const passwordHash = await hash(password, 8) //passamos o valor que queremos incriptografar + o saltOrRouds que é um parametro para incriptografar.
@@ -36,7 +38,9 @@ class CreateUserUseCase{
             
             email, 
             password: passwordHash, 
-            driver_license
+            driver_license,
+            id,
+            avatar,
         })
     }
 
