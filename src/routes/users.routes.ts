@@ -11,9 +11,9 @@ const usersRoutes = Router();
 
 const uploadAvatar = multer(uploadConfig);
 
-const createUserController = new CreateUserController()
+const createUserController = new CreateUserController();
 
-const updateUserAvatarController = new UpdateUserAvatarController()
+const updateUserAvatarController = new UpdateUserAvatarController();
 
 
 usersRoutes.post("/", createUserController.handle)

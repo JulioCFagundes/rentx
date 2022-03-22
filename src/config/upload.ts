@@ -6,7 +6,7 @@ import { resolve } from "path";
 export default {
     
     storage: multer.diskStorage({
-        destination:  resolve(__dirname, "..", "..", "tmp"),
+        destination:  resolve(__dirname, "..", "..", "tmp", "avatar"),
         filename: (request, file, callback) => { 
             const fileHash = crypto.randomBytes(16).toString("hex");
             const filename = `${fileHash}-${file.originalname}`
