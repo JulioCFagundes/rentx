@@ -1,5 +1,5 @@
-import { Category } from "../../entities/Category"
-import { ICategoriesRepository, ICreateCategoryDTO } from "../ICategoriesRepository";
+import { Category } from "../typeorm/entities/Category"
+import { ICategoriesRepository, ICreateCategoryDTO } from "../../repositories/ICategoriesRepository";
 
 
 // DTO => data transfer object
