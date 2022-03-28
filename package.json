@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --poll --transpile-only --ignore-watch node_modules --exit-child src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "test": "jest"
+    "test": "jest",
+    "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
