@@ -17,7 +17,7 @@ CMD ["npm", "run", "dev"]
 #rodar no cmd "docker ps" para ver as informações imagens
 #docker ps -a motra também os containers parados :D
 #rodar no cmd "docker run -p 3333:3333 desafio02" para rodar o servidor
-#para remover um container utilizamos o domando docker rm <IdDaoContainer>
+#para remover um container utilizamos o comando docker rm <IdDaoContainer>
 #para usar o remove, precisamos usar docker stop <IdDoContainer>
 #para iniciar um container, docker start <IdDoContainer>
 #para parar os serviços que é só usar docker stop
