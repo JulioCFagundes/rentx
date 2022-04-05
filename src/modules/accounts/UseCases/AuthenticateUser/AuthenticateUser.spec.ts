@@ -16,7 +16,7 @@ describe("Authenticate user", () => {
         createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
 
     })
-    it("Should be able to authenticate a user",  async()=> {
+    it("Should be able to authenticate a user", async () => {
         const user: ICreateUserDTO = {
             driver_license: "00123",
             email: "judralisk@hotmail.com",
@@ -26,7 +26,7 @@ describe("Authenticate user", () => {
         await createUserUseCase.execute(user);
 
         const result = await authenticateUserUseCase.execute({
-            email: user.email, 
+            email: user.email,
             password: user.password,
         });
         expect(result).toHaveProperty("token");
@@ -34,32 +34,37 @@ describe("Authenticate user", () => {
 
     });
 
-    it("should not be able to authenticate non existent user", () => {
+    it("should not be able to authenticate non existent user", async () => {
 
-        expect(async()=> {
-            await authenticateUserUseCase.execute({
-                email: "test@email.com", 
+        const user: ICreateUserDTO = {
+            driver_license: "9999",
+            email: "test@email.com",
+            password: "1234",
+            name: "user test error"
+        };
+        await createUserUseCase.execute(user);
+        await expect(
+            authenticateUserUseCase.execute({
+                email: "different@email.com",
                 password: "12345",
-            });
-        }).rejects.toBeInstanceOf(AppError);
+            })
+        ).rejects.toEqual(new AppError("Email or password incorrect"));
     });
 
-    it("should not be able to authenticate with incorrect password", () => {
-        expect(async()=> {
+    it("should not be able to authenticate with incorrect password", async () => {
+        const user: ICreateUserDTO = {
+            driver_license: "9999",
+            email: "test@email.com",
+            password: "1234",
+            name: "user test error"
+        };
 
-            const user: ICreateUserDTO = {
-                driver_license: "9999",
-                email: "test@email.com",
-                password: "1234",
-                name: "user test error"
-            };
-
-            await createUserUseCase.execute(user);
-
-            await authenticateUserUseCase.execute({
+        await createUserUseCase.execute(user);
+        await expect(
+            authenticateUserUseCase.execute({
                 email: user.email,
                 password: "incorrectPassword"
             })
-        }).rejects.toBeInstanceOf(AppError);
+        ).rejects.toEqual(new AppError("Email or password incorrect"));
     })
 });

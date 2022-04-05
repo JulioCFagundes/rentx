@@ -5,6 +5,6 @@ const authenticateRoutes = Router()
 
 const authenticateUserController = new AuthenticateUserController()
 
-authenticateRoutes.get("/sessions",  authenticateUserController.handle)
+authenticateRoutes.post("/sessions", authenticateUserController.handle)
 
 export { authenticateRoutes }
