@@ -11,7 +11,9 @@
     "paths": {
         "/categories": {
             "post": {
-                "tags": ["Categories"],
+                "tags": [
+                    "Categories"
+                ],
                 "summary": "Create a category",
                 "description": "Create a new category",
                 "requestBody": {
@@ -31,33 +33,30 @@
                                     "name": "category name sample",
                                     "description": "Category description sample"
                                 }
-                                
                             }
                         }
-                        
                     }
-                    
                 },
-                
                 "responses": {
                     "201": {
                         "description": "Created"
                     },
                     "500": {
-                        "description":  "Category already exists"
+                        "description": "Category already exists"
                     }
                 }
-                
             },
             "get": {
-                "tags": ["Categories"],
+                "tags": [
+                    "Categories"
+                ],
                 "summary": "List all categories",
                 "description": "List all categories",
                 "responses": {
                     "200": {
                         "description": "success",
                         "content": {
-                            "application/json" : {
+                            "application/json": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -74,11 +73,19 @@
                                 }
                             }
                         }
-                    }  
+                    }
                 }
             }
         },
         "/specifications": ""
+    },
+    "components": {
+        "securitySchema": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "BearerFormat": "JWT"
+            }
+        }
     }
-            
-    }
+}
