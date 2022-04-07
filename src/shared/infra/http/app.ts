@@ -5,7 +5,7 @@ import swaggerUi from "swagger-ui-express";
 
 import createConnection from "../typeorm/index";
 
-import "../../container/providers";
+import "../../container";
 
 import { AppError } from '../../errors/appError';
 import { router } from './routes';
