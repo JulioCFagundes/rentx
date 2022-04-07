@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class createCarImages1648470026402 implements MigrationInterface {
 
@@ -15,7 +15,7 @@ export class createCarImages1648470026402 implements MigrationInterface {
                     {
                         name: "car_id",
                         type: "uuid",
-                        
+
                     },
                     {
                         name: "image_name",
@@ -31,14 +31,14 @@ export class createCarImages1648470026402 implements MigrationInterface {
                 ],
                 foreignKeys: [
                     {
-                    
+
                         name: "FKCarImage",
                         referencedTableName: "cars",
                         referencedColumnNames: ["id"],
                         columnNames: ["car_id"],
                         onDelete: "SET NULL",
                         onUpdate: "SET NULL",
-                    
+
                     }
                 ]
             })
@@ -46,6 +46,7 @@ export class createCarImages1648470026402 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable("cars_image")
     }
 
 }
